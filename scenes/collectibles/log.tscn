@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://doj5smvjricjh"]
+
+[ext_resource type="Texture2D" uid="uid://baa77l0kci54l" path="res://assets/enemy/enemy_taking_damage_death-Sheet.png" id="1_1a8ms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uynsu"]
+
+[node name="Log" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uynsu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -3)
+texture = ExtResource("1_1a8ms")
+hframes = 24
+frame = 23

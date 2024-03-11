@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvqmeb5btg8ge"]
+
+[ext_resource type="Script" path="res://scenes/ui/mobs/mob_health.gd" id="1_tgld5"]
+
+[sub_resource type="Gradient" id="Gradient_yrdm5"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rsgrg"]
+gradient = SubResource("Gradient_yrdm5")
+
+[node name="MobHealth" type="Node2D"]
+script = ExtResource("1_tgld5")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_right = 231.0
+offset_bottom = 22.0
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_rsgrg")
