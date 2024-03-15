@@ -1,4 +1,4 @@
-[gd_scene load_steps=248 format=3 uid="uid://bvev42eif5nm3"]
+[gd_scene load_steps=245 format=3 uid="uid://bvev42eif5nm3"]
 
 [ext_resource type="Texture2D" uid="uid://wakjovg5lsdr" path="res://assets/player/player_taking_death-Sheet.png" id="1_j4tso"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_xjxvf"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dkd7gqee4n31d" path="res://assets/player/player_idle_with_axe-Sheet.png" id="7_mvkn5"]
 [ext_resource type="Texture2D" uid="uid://bv8v5mhs7ubir" path="res://assets/player/player_run_with_axe-Sheet.png" id="8_hyaap"]
 [ext_resource type="Texture2D" uid="uid://bm284uacn3a72" path="res://assets/player/player_idle_with_item-Sheet.png" id="9_bxhg8"]
-[ext_resource type="PackedScene" uid="uid://ddema45cs52wu" path="res://scenes/ui/player/stats.tscn" id="12_awyhf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4jcl"]
 radius = 4.0
@@ -1684,22 +1683,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../DamageBox/HitBox:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_ug236"]
 length = 0.6
-step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1731,27 +1717,14 @@ tracks/2/path = NodePath("../../DamageBox/HitBox/HitBoxCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.45),
+"times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../DamageBox/HitBox:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [-1.5708, -1.5708]
-}
 
 [sub_resource type="Animation" id="Animation_qrybp"]
 length = 0.6
-step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1783,27 +1756,14 @@ tracks/2/path = NodePath("../../DamageBox/HitBox/HitBoxCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.45),
+"times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../DamageBox/HitBox:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0.0, 0.0]
-}
 
 [sub_resource type="Animation" id="Animation_cqrbr"]
 length = 0.6
-step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1828,34 +1788,9 @@ tracks/1/keys = {
 "update": 1,
 "values": ["axe_attack_right"]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../DamageBox/HitBox:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [3.14159, 3.14159]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../DamageBox/HitBox/HitBoxCollision:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
 
 [sub_resource type="Animation" id="Animation_edmc5"]
 length = 0.6
-step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1879,30 +1814,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["axe_attack_up"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../DamageBox/HitBox/HitBoxCollision:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../DamageBox/HitBox:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1.5708, 1.5708]
 }
 
 [sub_resource type="Animation" id="Animation_qo50c"]
@@ -1931,18 +1842,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["axe_idle_down"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../DamageBox/HitBox/HitBoxCollision:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_cd74h"]
@@ -2338,7 +2237,6 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rjdk2"]
 advance_mode = 2
-advance_condition = &"has_axe"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v3f5q"]
 advance_mode = 2
@@ -2368,23 +2266,19 @@ advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_niqtx"]
 advance_mode = 2
-advance_condition = &"has_logs"
+advance_condition = &"is_take_log"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oevxu"]
 advance_mode = 2
-advance_condition = &"has_logs"
+advance_condition = &"is_take_log"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fvks3"]
 advance_mode = 2
-advance_condition = &"has_axe"
+advance_condition = &"is_moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uif8r"]
 advance_mode = 2
-advance_condition = &"has_axe"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rf8hl"]
-advance_mode = 2
-advance_condition = &"has_logs"
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_e2reo"]
 states/AxeAttack/node = SubResource("AnimationNodeBlendSpace2D_5sflv")
@@ -2396,19 +2290,15 @@ states/AxeMove/position = Vector2(536, 115)
 states/Log/node = SubResource("AnimationNodeBlendSpace2D_6lg83")
 states/Log/position = Vector2(410, 191)
 states/Start/position = Vector2(100, 115)
-transitions = ["Start", "AxeIdle", SubResource("AnimationNodeStateMachineTransition_rjdk2"), "AxeIdle", "AxeMove", SubResource("AnimationNodeStateMachineTransition_v3f5q"), "AxeMove", "AxeIdle", SubResource("AnimationNodeStateMachineTransition_w1pks"), "AxeMove", "AxeAttack", SubResource("AnimationNodeStateMachineTransition_7eko1"), "AxeAttack", "AxeMove", SubResource("AnimationNodeStateMachineTransition_bico8"), "AxeIdle", "AxeAttack", SubResource("AnimationNodeStateMachineTransition_j5bik"), "AxeAttack", "AxeIdle", SubResource("AnimationNodeStateMachineTransition_xwb62"), "AxeIdle", "Log", SubResource("AnimationNodeStateMachineTransition_niqtx"), "AxeMove", "Log", SubResource("AnimationNodeStateMachineTransition_oevxu"), "Log", "AxeMove", SubResource("AnimationNodeStateMachineTransition_fvks3"), "Log", "AxeIdle", SubResource("AnimationNodeStateMachineTransition_uif8r"), "Start", "Log", SubResource("AnimationNodeStateMachineTransition_rf8hl")]
-graph_offset = Vector2(-7, 22)
+transitions = ["Start", "AxeIdle", SubResource("AnimationNodeStateMachineTransition_rjdk2"), "AxeIdle", "AxeMove", SubResource("AnimationNodeStateMachineTransition_v3f5q"), "AxeMove", "AxeIdle", SubResource("AnimationNodeStateMachineTransition_w1pks"), "AxeMove", "AxeAttack", SubResource("AnimationNodeStateMachineTransition_7eko1"), "AxeAttack", "AxeMove", SubResource("AnimationNodeStateMachineTransition_bico8"), "AxeIdle", "AxeAttack", SubResource("AnimationNodeStateMachineTransition_j5bik"), "AxeAttack", "AxeIdle", SubResource("AnimationNodeStateMachineTransition_xwb62"), "AxeIdle", "Log", SubResource("AnimationNodeStateMachineTransition_niqtx"), "AxeMove", "Log", SubResource("AnimationNodeStateMachineTransition_oevxu"), "Log", "AxeMove", SubResource("AnimationNodeStateMachineTransition_fvks3"), "Log", "AxeIdle", SubResource("AnimationNodeStateMachineTransition_uif8r")]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_00ky1"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqss5"]
+size = Vector2(18, 22)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ipmup"]
 radius = 9.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p82c0"]
-radius = 11.0
-
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_xjxvf")
@@ -2425,8 +2315,8 @@ shape = SubResource("CapsuleShape2D_h4jcl")
 
 [node name="BodySprites" type="AnimatedSprite2D" parent="AnimationsNode/BodyAnimations"]
 sprite_frames = SubResource("SpriteFrames_4mihl")
-animation = &"idle_side_down"
-frame = 2
+animation = &"death_side_up"
+frame = 5
 
 [node name="BodyPlayer" type="AnimationPlayer" parent="AnimationsNode/BodyAnimations"]
 libraries = {
@@ -2452,24 +2342,24 @@ parameters/TakingHit/blend_position = Vector2(0, -0.0158731)
 
 [node name="HandSprites" type="AnimatedSprite2D" parent="AnimationsNode/HandAnimations"]
 sprite_frames = SubResource("SpriteFrames_c7yl3")
-animation = &"axe_attack_up"
+animation = &"axe_attack_left"
 
 [node name="HandPlayer" type="AnimationPlayer" parent="AnimationsNode/HandAnimations"]
 libraries = {
 "": SubResource("AnimationLibrary_0twhi")
 }
 
-[node name="HandTree" type="AnimationTree" parent="AnimationsNode/HandAnimations" groups=["player"]]
+[node name="HandTree" type="AnimationTree" parent="AnimationsNode/HandAnimations"]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_0twhi")
 }
 tree_root = SubResource("AnimationNodeStateMachine_e2reo")
 anim_player = NodePath("../HandPlayer")
-parameters/conditions/has_axe = false
-parameters/conditions/has_logs = false
 parameters/conditions/is_attack = false
 parameters/conditions/is_idle = false
 parameters/conditions/is_moving = false
+parameters/conditions/is_take_log = false
 parameters/AxeAttack/blend_position = Vector2(0, 0)
 parameters/AxeIdle/blend_position = Vector2(0, 0)
 parameters/AxeMove/blend_position = Vector2(0, 0)
@@ -2482,7 +2372,7 @@ collision_layer = 64
 collision_mask = 128
 
 [node name="HurtBoxCollision" type="CollisionShape2D" parent="DamageBox/HurtBox"]
-shape = SubResource("CircleShape2D_00ky1")
+shape = SubResource("RectangleShape2D_xqss5")
 
 [node name="HitBox" type="Area2D" parent="DamageBox"]
 collision_layer = 32
@@ -2492,18 +2382,4 @@ collision_mask = 256
 position = Vector2(-7, 0)
 shape = SubResource("CapsuleShape2D_ipmup")
 
-[node name="DamageTimer" type="Timer" parent="."]
-wait_time = 0.58
-
-[node name="LogDetector" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LogDetector"]
-shape = SubResource("CircleShape2D_p82c0")
-
-[node name="Stats" parent="." instance=ExtResource("12_awyhf")]
-
 [connection signal="area_entered" from="DamageBox/HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
-[connection signal="area_entered" from="LogDetector" to="." method="_on_log_detector_area_entered"]

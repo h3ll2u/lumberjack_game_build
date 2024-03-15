@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbkklpii00q5y"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy_drop.gd" id="1_t5uws"]
+[ext_resource type="PackedScene" uid="uid://doj5smvjricjh" path="res://scenes/collectibles/log.tscn" id="2_t4umj"]
+
+[node name="EnemyDrop" type="Node2D"]
+script = ExtResource("1_t5uws")
+logs_scene = ExtResource("2_t4umj")
