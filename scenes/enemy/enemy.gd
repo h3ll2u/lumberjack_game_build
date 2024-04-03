@@ -43,12 +43,19 @@ func change_direction(_direction):
 	if (velocity != Vector2.ZERO):
 		animation_tree["parameters/Attack/blend_position"] = direction
 
-
+	
 	if direction.x > 0:
+		$DamageBox/HitBox.rotation_degrees = 270
 		enemy_sprite_2d.flip_h = true
 	elif direction.x < 0:
+		$DamageBox/HitBox.rotation_degrees = 90
 		enemy_sprite_2d.flip_h = false
-
+	
+	if direction.y > 0 and direction.y > direction.x:
+		$DamageBox/HitBox.rotation_degrees = 0
+	elif direction.y < 0 and direction.y < direction.x:
+		$DamageBox/HitBox.rotation_degrees = 180
+	
 	
 func change_state(new_state):
 	state = new_state
@@ -120,6 +127,7 @@ func _on_mob_health_damage_received():
 
 
 func _on_mob_health_no_health():
+	Global.score += 1
 	state = DEATH
 	await animation_tree.animation_finished
 	Signals.emit_signal("enemy_died", position, state)

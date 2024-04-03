@@ -1,8 +1,15 @@
-[gd_scene load_steps=27 format=3 uid="uid://c4vvdmqkaitte"]
+[gd_scene load_steps=32 format=3 uid="uid://c4vvdmqkaitte"]
 
 [ext_resource type="Script" path="res://scenes/objects/campfire/camp_fire.gd" id="1_70d57"]
 [ext_resource type="Texture2D" uid="uid://dw67ix6cg4hq1" path="res://assets/objects/campfire/fireplase.png" id="1_uqcug"]
 [ext_resource type="Texture2D" uid="uid://wyf3dh8rwekm" path="res://assets/objects/campfire/fire-Sheet.png" id="2_50qv3"]
+[ext_resource type="PackedScene" uid="uid://dxnvcdcumcddh" path="res://scenes/objects/light.tscn" id="4_g7fkp"]
+[ext_resource type="AudioStream" uid="uid://b1n7ibvb5yy00" path="res://assets/sound/fireplace-fire-crackling-loop-123930.mp3" id="5_ni7v1"]
+[ext_resource type="AudioStream" uid="uid://dnr08jd6ytu2e" path="res://assets/sound/log_in_bonfire.mp3" id="6_qqjxr"]
+
+[sub_resource type="Gradient" id="Gradient_4jwgj"]
+offsets = PackedFloat32Array(0, 0.215054, 0.659498, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.933333, 0.168627, 0, 1, 0.9731, 0.500091, 0.235506, 1, 0, 0, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tn7h3"]
 size = Vector2(12, 2)
@@ -178,8 +185,26 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bq3sq"]
 radius = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5gv0"]
+radius = 31.0
+
 [node name="CampFire" type="StaticBody2D"]
 script = ExtResource("1_70d57")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -2)
+amount = 2
+lifetime = 0.5
+fixed_fps = 30
+emission_shape = 3
+emission_rect_extents = Vector2(1, 0)
+direction = Vector2(0, -1)
+spread = 10.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 93.0
+initial_velocity_max = 93.0
+angle_max = 35.0
+color_ramp = SubResource("Gradient_4jwgj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
@@ -193,7 +218,7 @@ position = Vector2(0, -8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fire"]
 sprite_frames = SubResource("SpriteFrames_76dcv")
-animation = &"full"
+animation = &"extinguished"
 
 [node name="PlayerTrigger" type="Area2D" parent="."]
 collision_layer = 16
@@ -205,5 +230,29 @@ shape = SubResource("CircleShape2D_bq3sq")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="RegenArea" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 2
+
+[node name="RegenCollision" type="CollisionShape2D" parent="RegenArea"]
+shape = SubResource("CircleShape2D_k5gv0")
+
+[node name="Light" parent="." instance=ExtResource("4_g7fkp")]
+
+[node name="PointLight2D" parent="Light" index="0"]
+color = Color(1, 0.741176, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="CampFireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ni7v1")
+volume_db = -15.0
+autoplay = true
+
+[node name="LogInBonFireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qqjxr")
+volume_db = -15.0
+
 [connection signal="body_entered" from="PlayerTrigger" to="." method="_on_player_trigger_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Light"]

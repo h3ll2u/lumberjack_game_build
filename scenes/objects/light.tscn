@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxnvcdcumcddh"]
+
+[ext_resource type="Texture2D" uid="uid://62215kv32th" path="res://assets/circle.png" id="1_0t304"]
+[ext_resource type="Script" path="res://scenes/objects/light.gd" id="1_u2kea"]
+
+[node name="Light" type="Node2D"]
+script = ExtResource("1_u2kea")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 1.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.811765)
+texture = ExtResource("1_0t304")
+texture_scale = 0.3
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

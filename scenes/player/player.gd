@@ -8,7 +8,7 @@ enum {
 	DEATH,
 	}
 
-@export var move_speed : float = 150.0
+@export var move_speed : float = 85.0
 @export var accel : float = 10.0
 
 @onready var body_tree = $AnimationsNode/BodyAnimations/BodyTree
@@ -16,6 +16,7 @@ enum {
 @onready var hand_tree = $AnimationsNode/HandAnimations/HandTree
 @onready var damage_timer = $DamageTimer
 @onready var stats = $Stats
+@onready var in_battle_timer = $InBattleTimer
 
 var direction : Vector2
 var state = IDLE
@@ -24,10 +25,11 @@ var damage_cooldown : bool = false
 var enemy : Vector2
 var axe_in_hand : bool
 var logs
-
+var in_battle : bool = false
 
 func _ready():
 	current_damage = 25
+	in_battle = false
 	
 	body_tree.active = true
 	hand_tree.active = true
@@ -63,6 +65,7 @@ func change_direction(_direction):
 	if(_direction != Vector2.ZERO):
 		body_tree["parameters/Idle/blend_position"] = _direction
 		body_tree["parameters/Move/blend_position"] = _direction
+		#body_tree["parameters/Death/blend_position"] = _direction
 		last_direction = _direction
 	
 	if state == ATTACK:
@@ -132,7 +135,7 @@ func attack_state():
 	hand_tree["parameters/conditions/is_attack"] = true
 	move_speed /= 3
 	await hand_tree.animation_finished
-	move_speed = 150.0
+	move_speed = 85.0
 	hand_tree["parameters/conditions/is_attack"] = false
 	change_state(IDLE)
 
@@ -140,6 +143,7 @@ func attack_state():
 func taking_hit_state():
 	damage_anim()
 	body_tree["parameters/conditions/is_taking_hit"] = true
+	$Sound/HurtSound.playing = true
 	await body_tree.animation_finished
 	body_tree["parameters/conditions/is_taking_hit"] = false
 	state = IDLE
@@ -152,10 +156,17 @@ func death_state():
 	#hand_tree["parameters/conditions/is_moving"] = false
 	#hand_tree["parameters/conditions/is_idle"] = false
 	$AnimationsNode/HandAnimations.visible = false
+	#$Sound/DeathSound.playing = true
+	$CollisionShape2D.disabled = true
+	await body_tree.animation_finished
+	Global.player_died = true
 
 
 func _on_damage_received(enemy_damage):
 	if damage_cooldown == false:
+		in_battle = true
+		in_battle_timer.start()
+		stats.no_regen_alert_show()
 		stats.health -= enemy_damage
 		damage_timer.start()
 		damage_cooldown = true
@@ -202,3 +213,16 @@ func _on_log_detector_area_entered(area):
 	print("In Area")
 	if area.is_in_group("logs"):
 		logs = area
+
+
+func _on_regen_detector_area_entered(area):
+	Global.in_regen_aura = true
+
+
+func _on_regen_detector_area_exited(area):
+	Global.in_regen_aura = false
+
+
+func _on_in_battle_timer_timeout():
+	in_battle = false
+	stats.no_regen_alert_hide()
