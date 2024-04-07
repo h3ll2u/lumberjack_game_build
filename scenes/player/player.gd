@@ -226,3 +226,7 @@ func _on_regen_detector_area_exited(area):
 func _on_in_battle_timer_timeout():
 	in_battle = false
 	stats.no_regen_alert_hide()
+
+
+func _on_hit_box_area_entered(area):
+	$Sound/HurtSound2.playing = true

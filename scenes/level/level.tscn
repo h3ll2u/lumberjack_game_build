@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjj4s431etf5v"]
+[gd_scene load_steps=9 format=3 uid="uid://cjj4s431etf5v"]
 
 [ext_resource type="TileSet" uid="uid://dkr0qcpte6prk" path="res://scenes/level/level.tres" id="1_uew1v"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_y7a8b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvev42eif5nm3" path="res://scenes/player/player.tscn" id="2_v16jr"]
 [ext_resource type="PackedScene" uid="uid://c4vvdmqkaitte" path="res://scenes/objects/campfire/camp_fire.tscn" id="3_heb0y"]
 [ext_resource type="PackedScene" uid="uid://bbkklpii00q5y" path="res://scenes/enemy/enemy_drop.tscn" id="3_oduy7"]
+[ext_resource type="AudioStream" uid="uid://3eit4gbfp00m" path="res://assets/sound/mp3.mp3" id="7_k4pac"]
 
 [sub_resource type="Curve2D" id="Curve2D_ykk2m"]
 _data = {
@@ -52,6 +53,12 @@ range_layer_min = -1
 [node name="DifficultTimer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
+
+[node name="Sound" type="Node2D" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("7_k4pac")
+volume_db = -5.0
 
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="timeout" from="DifficultTimer" to="." method="_on_difficult_timer_timeout"]

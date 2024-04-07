@@ -17,3 +17,6 @@ var in_regen_aura : bool
 var player_died : bool
 
 var screen_mode : bool
+
+func _ready():
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)

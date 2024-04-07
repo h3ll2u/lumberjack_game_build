@@ -284,7 +284,6 @@ shadow_color = Color(0, 0, 0, 1)
 
 [node name="CampFireSound" type="AudioStreamPlayer" parent="CampFire"]
 stream = ExtResource("7_5r7an")
-volume_db = -5.0
 autoplay = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]

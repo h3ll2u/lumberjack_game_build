@@ -45,16 +45,16 @@ func change_state(new_state):
 	match state:
 		FULL_POWER:
 			animated_sprite_2d.play("full")
-			regen_collision.shape.radius = 31
+			regen_collision.shape.radius = 75
 		HIGH_POWER:
 			animated_sprite_2d.play("high")
-			regen_collision.shape.radius = 25
+			regen_collision.shape.radius = 65
 		MID_POWER:
 			animated_sprite_2d.play("medium")
-			regen_collision.shape.radius = 20
+			regen_collision.shape.radius = 50
 		LOW_POWER:
 			animated_sprite_2d.play("small")
-			regen_collision.shape.radius = 15
+			regen_collision.shape.radius = 40
 		EXTINGUISHED:
 			animated_sprite_2d.play("extinguished")
 	if fire_power >= 85:

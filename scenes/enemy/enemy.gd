@@ -101,6 +101,7 @@ func attack_state():
 		await animation_tree.animation_finished
 		state = CHASE
 
+
 func taking_hit_state():
 	if damage_cooldown == false:
 		damage_anim()
@@ -110,7 +111,7 @@ func taking_hit_state():
 		animation_tree["parameters/conditions/is_moving"] = false
 		animation_tree["parameters/conditions/is_attack"] = false
 		state = CHASE
-		print("TakingHit")
+
 
 func death_state():
 	velocity = Vector2.ZERO
@@ -119,7 +120,6 @@ func death_state():
 	animation_tree["parameters/conditions/is_moving"] = false
 	animation_tree["parameters/conditions/is_idle"] = false
 	state = DEATH
-	print("Death")
 
 	
 func _on_mob_health_damage_received():
@@ -138,12 +138,11 @@ func _on_mob_health_no_health():
 func _on_attack_range_body_entered(body):
 	if body.is_in_group("player"):
 		state = ATTACK
-		print("Player Entered")
 
 
 func _on_hit_box_area_entered(area):
 	Signals.emit_signal("enemy_attack", damage)
-	print("cool")
+
 
 func damage_anim():
 	velocity = Vector2.ZERO

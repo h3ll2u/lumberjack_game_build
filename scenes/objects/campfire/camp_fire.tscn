@@ -186,7 +186,7 @@ animations = [{
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5gv0"]
-radius = 31.0
+radius = 75.0
 
 [node name="CampFire" type="StaticBody2D"]
 script = ExtResource("1_70d57")

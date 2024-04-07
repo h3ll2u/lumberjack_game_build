@@ -1374,7 +1374,6 @@ height = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sihn5"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_antx1"]
-playback_mode = 1
 streams_count = 5
 stream_0/stream = ExtResource("7_8df8k")
 stream_0/weight = 1.0
@@ -1464,11 +1463,11 @@ wait_time = 1.5
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="Sound"]
 stream = SubResource("AudioStreamRandomizer_antx1")
-volume_db = -20.0
+volume_db = -80.0
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("12_41vpc")
-volume_db = -15.0
+volume_db = -25.0
 
 [node name="SwingSound" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("13_gxhv4")

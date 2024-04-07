@@ -1,4 +1,4 @@
-[gd_scene load_steps=263 format=3 uid="uid://bvev42eif5nm3"]
+[gd_scene load_steps=269 format=3 uid="uid://bvev42eif5nm3"]
 
 [ext_resource type="Texture2D" uid="uid://wakjovg5lsdr" path="res://assets/player/player_taking_death-Sheet.png" id="1_j4tso"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_xjxvf"]
@@ -19,6 +19,11 @@
 [ext_resource type="AudioStream" uid="uid://8v2suefljvsf" path="res://assets/sound/death.mp3" id="17_wp8us"]
 [ext_resource type="AudioStream" uid="uid://bwxgwyvuefi8v" path="res://assets/sound/step.MP3" id="18_itawa"]
 [ext_resource type="AudioStream" uid="uid://dgvrvgcmwofg7" path="res://assets/sound/step2.MP3" id="19_0kuhj"]
+[ext_resource type="AudioStream" uid="uid://8t6yf6nq8vvx" path="res://assets/sound/strike1.mp3" id="20_juu6u"]
+[ext_resource type="AudioStream" uid="uid://7marv8k04q66" path="res://assets/sound/strike2.mp3" id="21_5v1fq"]
+[ext_resource type="AudioStream" uid="uid://cchlddx3ky3hp" path="res://assets/sound/strike3.mp3" id="22_pnrbb"]
+[ext_resource type="AudioStream" uid="uid://dlfrkdtjqsp26" path="res://assets/sound/strike4.mp3" id="23_ihoq8"]
+[ext_resource type="AudioStream" uid="uid://cchfm7q83vf4y" path="res://assets/sound/strike5.mp3" id="24_3mwo1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4jcl"]
 radius = 4.0
@@ -2689,6 +2694,20 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("19_0kuhj")
 stream_1/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8xbxw"]
+playback_mode = 1
+streams_count = 5
+stream_0/stream = ExtResource("20_juu6u")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("21_5v1fq")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("22_pnrbb")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("23_ihoq8")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("24_3mwo1")
+stream_4/weight = 1.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_xjxvf")
@@ -2711,6 +2730,7 @@ shape = SubResource("CapsuleShape2D_h4jcl")
 [node name="BodySprites" type="AnimatedSprite2D" parent="AnimationsNode/BodyAnimations"]
 sprite_frames = SubResource("SpriteFrames_4mihl")
 animation = &"idle_side_down"
+frame = 1
 
 [node name="BodyPlayer" type="AnimationPlayer" parent="AnimationsNode/BodyAnimations"]
 libraries = {
@@ -2818,6 +2838,7 @@ libraries = {
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="Sound"]
 stream = SubResource("AudioStreamRandomizer_61hy1")
+volume_db = -15.0
 
 [node name="SwingSound" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("16_6on7e")
@@ -2825,12 +2846,18 @@ volume_db = -20.0
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("17_wp8us")
+volume_db = -15.0
 
 [node name="StepsSound" type="AudioStreamPlayer" parent="Sound"]
 stream = SubResource("AudioStreamRandomizer_xhq4k")
 volume_db = -25.0
 
+[node name="HurtSound2" type="AudioStreamPlayer" parent="Sound"]
+stream = SubResource("AudioStreamRandomizer_8xbxw")
+volume_db = -5.0
+
 [connection signal="area_entered" from="DamageBox/HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="DamageBox/HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="area_entered" from="LogDetector" to="." method="_on_log_detector_area_entered"]
 [connection signal="area_entered" from="RegenDetector" to="." method="_on_regen_detector_area_entered"]
