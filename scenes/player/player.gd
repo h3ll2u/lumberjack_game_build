@@ -28,7 +28,7 @@ var logs
 var in_battle : bool = false
 
 func _ready():
-	current_damage = 25
+	current_damage = 33
 	in_battle = false
 	
 	body_tree.active = true

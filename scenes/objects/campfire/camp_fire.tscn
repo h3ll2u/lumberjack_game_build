@@ -189,6 +189,7 @@ radius = 12.0
 radius = 75.0
 
 [node name="CampFire" type="StaticBody2D"]
+collision_layer = 17
 script = ExtResource("1_70d57")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -222,7 +223,7 @@ animation = &"extinguished"
 
 [node name="PlayerTrigger" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 10
 
 [node name="PlayerFind" type="CollisionShape2D" parent="PlayerTrigger"]
 shape = SubResource("CircleShape2D_bq3sq")

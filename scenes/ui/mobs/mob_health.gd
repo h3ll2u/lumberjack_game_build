@@ -5,7 +5,7 @@ signal damage_received
 
 @onready var health_bar = $HealthBar
 
-@export var max_health = 100
+@export var max_health = 99
 
 var health : int = 100:
 	set(value):

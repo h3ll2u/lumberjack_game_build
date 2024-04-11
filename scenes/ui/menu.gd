@@ -4,6 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.player_take_logs = false
 	Global.screen_mode = true
 	Global.player_died = false
 	Global.score = 0

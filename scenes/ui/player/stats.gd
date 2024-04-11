@@ -43,7 +43,7 @@ func _process(delta):
 
 func _on_health_regen_timeout():
 	if Global.in_regen_aura == true and player.in_battle == false:
-		health += 3
+		health += 10
 
 
 func update_score(value):

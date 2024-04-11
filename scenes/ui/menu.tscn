@@ -415,6 +415,27 @@ offset_right = 130.0
 offset_bottom = 18.0
 text = "- FullScreen"
 
+[node name="Esc" type="Sprite2D" parent="UI/CanvasLayer"]
+position = Vector2(423, 247)
+scale = Vector2(2.32731, 2.32731)
+texture = ExtResource("7_2d6er")
+
+[node name="Label" type="Label" parent="UI/CanvasLayer/Esc"]
+offset_left = -4.72649
+offset_top = -3.86711
+offset_right = 35.2735
+offset_bottom = 10.1329
+scale = Vector2(0.483428, 0.483428)
+text = "Esc"
+
+[node name="Label3" type="Label" parent="UI/CanvasLayer"]
+offset_left = 443.0
+offset_top = 239.0
+offset_right = 517.0
+offset_bottom = 253.0
+text = "- Quit"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="body_entered" from="CampFire/PlayerTrigger" to="CampFire" method="_on_player_trigger_body_entered"]
 [connection signal="timeout" from="CampFire/Timer" to="CampFire" method="_on_timer_timeout"]
 [connection signal="toggled" from="UI/CanvasLayer/CheckButton" to="." method="_on_check_button_toggled"]

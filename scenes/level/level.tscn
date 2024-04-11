@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvev42eif5nm3" path="res://scenes/player/player.tscn" id="2_v16jr"]
 [ext_resource type="PackedScene" uid="uid://c4vvdmqkaitte" path="res://scenes/objects/campfire/camp_fire.tscn" id="3_heb0y"]
 [ext_resource type="PackedScene" uid="uid://bbkklpii00q5y" path="res://scenes/enemy/enemy_drop.tscn" id="3_oduy7"]
-[ext_resource type="AudioStream" uid="uid://3eit4gbfp00m" path="res://assets/sound/mp3.mp3" id="7_k4pac"]
+[ext_resource type="AudioStream" uid="uid://bmh3w82ocoyg5" path="res://assets/sound/Fires of the Forest.mp3" id="7_1tees"]
 
 [sub_resource type="Curve2D" id="Curve2D_ykk2m"]
 _data = {
@@ -57,7 +57,7 @@ autostart = true
 [node name="Sound" type="Node2D" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="Sound"]
-stream = ExtResource("7_k4pac")
+stream = ExtResource("7_1tees")
 volume_db = -5.0
 
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]

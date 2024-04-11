@@ -24,4 +24,3 @@ func logs_spawn(pos):
 	var logs = logs_scene.instantiate()
 	logs.position = pos
 	call_deferred("add_child", logs)
-	var node_childrens = logs.get_child_count(logs)
