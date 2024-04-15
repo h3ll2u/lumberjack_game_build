@@ -98,7 +98,7 @@ func attack_state():
 		animation_tree["parameters/conditions/is_moving"] = false
 		attack_recover = true
 		attack_cooldown.start()
-		await animation_tree.animation_finished
+		#await animation_tree.animation_finished
 		state = CHASE
 
 

@@ -110,7 +110,6 @@ func change_state(new_state):
 		state = ATTACK
 	if Input.is_action_just_pressed("interact") and Global.player_take_logs != true and Global.player_in_logs_range == true:
 		logs.queue_free()
-		print("Test")
 		Global.player_take_logs = true
 	elif (Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("attack")) and Global.player_take_logs:
 		Global.player_take_logs = false
@@ -210,7 +209,6 @@ func item_in_hand():
 
 
 func _on_log_detector_area_entered(area):
-	print("In Area")
 	if area.is_in_group("logs"):
 		logs = area
 

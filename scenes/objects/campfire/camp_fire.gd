@@ -30,7 +30,6 @@ func _process(delta):
 
 func _on_timer_timeout():
 	fire_power -= 1
-	print(fire_power)
 
 
 func _on_player_trigger_body_entered(body):
