@@ -119,6 +119,8 @@ func death_state():
 	animation_tree["parameters/conditions/is_taking_hit"] = false
 	animation_tree["parameters/conditions/is_moving"] = false
 	animation_tree["parameters/conditions/is_idle"] = false
+	velocity.x = 0
+	velocity.y = 0
 	state = DEATH
 
 	

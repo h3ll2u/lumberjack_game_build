@@ -7,3 +7,5 @@ signal enemy_died (enemy_position, state)
 signal logs_dropped (player_position)
 
 signal campfire_state (state)
+
+signal day_time (state, day_count)
