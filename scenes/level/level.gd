@@ -46,33 +46,16 @@ func change_state(new_state):
 func morning_state():
 	animation_player.play("sunshine")
 	await animation_player.animation_finished
-	state = DAY
-	
+
 	
 func day_state():
 	await get_tree().create_timer(5).timeout
-	state = EVENING
 	
 	
 func evening_state():
 	animation_player.play("sunshine")
 	await animation_player.animation_finished
-	state = NIGHT
 	
 	
 func night_state():
 	pass
-	#if $Enemies.get_child_count(int()) <= 0:
-		#state = MORNING
-
-
-
-
-#func _on_enemy_timer_timeout():
-	#var rng = randi_range(1, 5)
-	#for i in rng:
-		#spawn_enemy()
-
-
-#func _on_difficult_timer_timeout():
-	#$EnemyTimer.wait_time -= 0.5
